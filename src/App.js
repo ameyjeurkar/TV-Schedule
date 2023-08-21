@@ -11,11 +11,6 @@ import { filterScheduleToTime, filterShowsBySearchQuery } from './redux/slice/fi
 import './App.css';
 import '../src/styles.css';
 
-// https://api.tvmaze.com/schedule (US specific)
-// https://api.tvmaze.com/schedule/web?date=2020-05-29&country=US
-// https://api.tvmaze.com/schedule/full (don't use)
-// https://api.tvmaze.com/search/shows?q=gameo search API
-
 function App() {
   const { isLoading } = useFetch(process.env.REACT_APP_SCHEDULE_BASE_URL);
   const dispatch = useDispatch();
