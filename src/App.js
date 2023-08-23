@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      searchQuery && searchResultAPI();
+      !searchQuery ? dispatch(filterScheduleToTime({scheduleAPIResponse, timeRange})) : searchResultAPI();
     }, 500)
     return () => clearTimeout(timer);
   }, [searchQuery])
