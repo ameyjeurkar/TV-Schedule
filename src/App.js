@@ -25,10 +25,12 @@ function App() {
   }, [timeRange, scheduleAPIResponse]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      !searchQuery ? dispatch(filterScheduleToTime({scheduleAPIResponse, timeRange})) : searchResultAPI();
-    }, 500)
-    return () => clearTimeout(timer);
+    if(scheduleAPIResponse.length) {
+      const timer = setTimeout(() => {
+        !searchQuery ? dispatch(filterScheduleToTime({scheduleAPIResponse, timeRange})) : searchResultAPI();
+      }, 500)
+      return () => clearTimeout(timer);
+    }
   }, [searchQuery])
 
   const viewShowsForDifferentTimeCallback = (timeRangeCode) => {
