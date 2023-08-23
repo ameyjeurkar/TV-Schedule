@@ -2,3 +2,8 @@
     margin-top: 2vw;
     margin-bottom: 2vw;
 }
+
+.container-center {
+    display: flex;
+    justify-content: center;
+}

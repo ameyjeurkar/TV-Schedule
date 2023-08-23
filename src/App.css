@@ -5,8 +5,3 @@
     justify-content: center;
     flex-direction: column;
 }
-
-.container-center {
-    display: flex;
-    justify-content: center;
-}

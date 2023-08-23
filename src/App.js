@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useFetch } from './hooks/useFetch';
 import { getAPIDetails } from './utils/requests';
 import { headerNames } from './utils/constants';
-import Schedule from './components/Schedule';
 import NavBar from './components/NavBar';
-import { CircularProgress, Typography } from '@mui/material';
+import Schedule from './components/Schedule';
+import ErrorMessage from './components/ErrorMessage';
+import { CircularProgress } from '@mui/material';
 import { getCurrentHour } from './utils/common';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterScheduleToTime, filterShowsBySearchQuery } from './redux/slice/filteredScheduleSlice';
@@ -54,13 +55,7 @@ function App() {
             scheduleAPIResponse?.length ? (
               <Schedule scheduleAPIResponse={filteredSchedule} timeRange={timeRange} searchQuery={searchQuery} />
             ) : (
-              <>
-                <div className="container-center">
-                  <Typography variant="h5" gutterBottom component="div">
-                    {headerNames?.NETWORK_ISSUE}
-                  </Typography>
-                </div>
-              </>
+              <ErrorMessage message={headerNames?.NETWORK_ISSUE} variant="h5" />
             )
           )
         }
